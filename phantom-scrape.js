@@ -23,6 +23,17 @@ function outputJSON(object) {
  */
 function runReadability(url, userAgent, pageContent) {
   var location = document.location;
+  var getDirection = function(document) {
+    var bodyTags = document.getElementsByTagName('body');
+    if (bodyTags.length === 0) {
+      return "";
+    }
+    if (window.getComputedStyle) {
+      return window.getComputedStyle(bodyTags[0], null).getPropertyValue('direction');
+    }
+    return "";
+  };
+
   var uri = {
     spec: location.href,
     host: location.host,
@@ -37,6 +48,9 @@ function runReadability(url, userAgent, pageContent) {
     if (result) {
       result.userAgent = userAgent;
       result.isProbablyReaderable = isProbablyReaderable;
+      if (result.dir === undefined || result === '') {
+        result.dir = getDirection(document);
+      }
     } else {
       result = {
         error: {
