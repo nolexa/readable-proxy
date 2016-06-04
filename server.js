@@ -36,7 +36,7 @@ app.get("/api", function(req, res) {
 });
 
 app.get("/api/get", function(req, res) {
-  var url = req.query.url,
+  var url = encodeURI(req.query.url),
       sanitize = boolArg(req.query.sanitize),
       userAgent = req.query.userAgent;
   if (!url) {
