@@ -23,6 +23,20 @@ function outputJSON(object) {
  */
 function runReadability(url, userAgent, pageContent) {
   var location = document.location;
+  var getLanguage = function(document) {
+    var lang = document.documentElement.lang;
+    if (lang !== undefined) {
+      return lang;
+    }
+    var metas = document.getElementsByTagName('meta');
+    for (var i=0; i<metas.length; i++) {
+      if (metas[i].getAttribute("name") === "language") {
+        return metas[i].getAttribute("content");
+      }
+    }
+    return "";
+  };
+
   var getDirection = function(document) {
     var bodyTags = document.getElementsByTagName('body');
     if (bodyTags.length === 0) {
@@ -48,6 +62,7 @@ function runReadability(url, userAgent, pageContent) {
     if (result) {
       result.userAgent = userAgent;
       result.isProbablyReaderable = isProbablyReaderable;
+      result.language = getLanguage(document);
       if (result.dir === undefined || result === '') {
         result.dir = getDirection(document);
       }

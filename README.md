@@ -65,6 +65,7 @@ Content sanitization enabled:
     {
       "byline":"Nicolas Perriault —",
       "content":"<p><strong>So finally you&#39;re <a href=\"https://nicolas.perriault.net/code/2013/testing-frontend-javascript-code-using-mocha-chai-and-sinon/\">testing",
+      "language": "en"
       "length":2867,
       "title":"Get your Frontend JavaScript Code Covered | Code",
       "uri":"https://nicolas.perriault.net/code/2013/get-your-frontend-javascript-code-covered/",
@@ -77,6 +78,7 @@ Content sanitization disabled (default):
     {
       "byline":"Nicolas Perriault —",
       "content":"<div id=\"readability-page-1\" class=\"page\"><section class=\"\">\n<p><strong>So finally you're…",
+      "language": "en"
       "length":3851,
       "title":"Get your Frontend JavaScript Code Covered | Code",
       "uri":"https://nicolas.perriault.net/code/2013/get-your-frontend-javascript-code-covered/",
