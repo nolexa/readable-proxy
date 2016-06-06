@@ -101,7 +101,7 @@ if (userAgent) {
 page.settings.loadImages = false;
 
 // ensure we don't waste time trying to load slow/missing resources
-page.settings.resourceTimeout = 1000;
+page.settings.resourceTimeout = 3000;
 
 page.onConsoleMessage = function(msg) {
   consoleLogs.push(msg);
